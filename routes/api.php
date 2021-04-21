@@ -19,4 +19,5 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('/register', [AuthController::class, 'register']);
+Route::middleware(['web'])->post('/register', [AuthController::class, 'register']);
+Route::middleware(['auth:sanctum'])->get('/departamentos', [AuthController::class, 'test']);

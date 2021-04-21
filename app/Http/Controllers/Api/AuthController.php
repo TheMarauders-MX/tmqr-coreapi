@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -20,10 +22,16 @@ class AuthController extends Controller
             'email' => $data['email'],
             'already_user' => $data['already_user'],
             'phone' => $data['phone'],
+            'password' => Hash::make($data['phone'])
         ]);
-        $token = $user->createToken('apptoken')->plainTextToken;
-        $response = ['token' => $token];
 
-        return response($response, 201);
+        Auth::login($user);
+
+        return ["message" => "logged in, kinda"];
+    }
+
+    public function test(Request $request)
+    {
+        return ["message" => "you are in"];
     }
 }
