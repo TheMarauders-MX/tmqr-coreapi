@@ -18,7 +18,6 @@ class UpdateUsersTable extends Migration
             $table->string('phone');
 
             $table->dropColumn('name');
-            $table->dropColumn('password');
         });
     }
 
@@ -34,7 +33,6 @@ class UpdateUsersTable extends Migration
             $table->dropColumn(('phone'));
 
             $table->string('name');
-            $table->string('password');
         });
     }
 }
