@@ -17,3 +17,5 @@ use App\Http\Controllers\Api\AuthController;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+Route::post('/register', [AuthController::class, 'register']);
