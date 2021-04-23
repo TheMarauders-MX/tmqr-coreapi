@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AreaController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,11 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::middleware(['auth:sanctum'])->get('/productos', [AuthController::class, 'test']);
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+Route::middleware(['auth:sanctum'])->get('area/{id}', [AreaController::class, 'show']);
+Route::middleware(['auth:sanctum'])->get('area', [AreaController::class, 'index']);
+
+Route::middleware(['auth:sanctum'])->get('product/{id}', [ProductController::class, 'show']);
