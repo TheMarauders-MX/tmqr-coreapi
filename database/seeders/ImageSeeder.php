@@ -24,21 +24,6 @@ class ImageSeeder extends Seeder
      */
     public function run()
     {
-        // AREAS IMAGES
-        DB::table('images')->insert([
-            'url' =>       'https://ss423.liverpool.com.mx/lg/1097875908.jpg',
-            'area_id' =>    1,
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        DB::table('images')->insert([
-            'url' =>       'https://ss423.liverpool.com.mx/lg/1097877731.jpg',
-            'area_id' =>    1,
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-
-        // PRODUCTS IMAGES
         DB::table('images')->insert([
             'url' =>       'https://ss629.liverpool.com.mx/xl/1095455804_0p.jpg',
             'product_id' => 1,

@@ -13,6 +13,8 @@ class Area extends Model
 
     protected $fillable = [
         'name',
+        'route',
+        'image',
         'discount'
     ];
 
@@ -25,10 +27,4 @@ class Area extends Model
     {
         return $this->hasMany(Product::class);
     }
-
-    public function images()
-    {
-        return $this->hasMany(Image::class);
-    }
-
 }

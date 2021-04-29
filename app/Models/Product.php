@@ -13,8 +13,10 @@ class Product extends Model
 
     protected $fillable = [
         'name',
+        'route',
         'price',
         'detail',
+        'scoring',
         'area_id'
     ];
 

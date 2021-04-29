@@ -14,7 +14,6 @@ class Image extends Model
     protected $fillable = [
         'url',
         'product_id',
-        'area_id'
     ];
 
     protected $hidden = [
