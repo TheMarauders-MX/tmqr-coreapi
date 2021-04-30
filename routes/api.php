@@ -24,8 +24,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware(['auth:sanctum'])->get('area/{id}', [AreaController::class, 'show']);
-Route::middleware(['auth:sanctum'])->get('area', [AreaController::class, 'index']);
+Route::get('area/{id}', [AreaController::class, 'show']);
+Route::get('area', [AreaController::class, 'index']);
 
-Route::middleware(['auth:sanctum'])->get('product/{id}', [ProductController::class, 'show']);
-Route::middleware(['auth:sanctum'])->get('find/{term}', [ProductController::class, 'find']);
+Route::get('product/{id}', [ProductController::class, 'show']);
+Route::get('find/{term}', [ProductController::class, 'find']);
