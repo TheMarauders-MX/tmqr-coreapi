@@ -85,9 +85,16 @@ class ProductController extends Controller
                 break;
         }
 
-        $product = $options[0];
-        $product['images'] = $product->images;
+        if ($options != [])
+        {
+            $product = $options[0];
+            $product['images'] = $product->images;
 
-        return response()->json($product);
+            return response()->json($product);
+        }
+        else
+        {
+            return response()->json(['message' => 'Product not found.']);
+        }
     }
 }
