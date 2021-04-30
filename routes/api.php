@@ -28,3 +28,4 @@ Route::middleware(['auth:sanctum'])->get('area/{id}', [AreaController::class, 's
 Route::middleware(['auth:sanctum'])->get('area', [AreaController::class, 'index']);
 
 Route::middleware(['auth:sanctum'])->get('product/{id}', [ProductController::class, 'show']);
+Route::middleware(['auth:sanctum'])->get('find/{term}', [ProductController::class, 'find']);
