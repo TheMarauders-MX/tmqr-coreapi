@@ -16,7 +16,7 @@ class AreaSeeder extends Seeder
     {
         DB::table('areas')->insert([
             'name' => 'Pantallas',
-            'route' => urlencode('computacion'),
+            'route' => urlencode('pantallas'),
             'discount' => 20,
             'image' => 'https://assetspwa.liverpool.com.mx/assets/digital/home/img/abril21/bca_280421pan.jpg',
             'created_at' => now(),
