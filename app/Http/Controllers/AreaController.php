@@ -11,24 +11,40 @@ class AreaController extends Controller
     {
         $areas = Area::all();
 
-        foreach ($areas as $area)
-        {
-            $area = $area->images;
+        $response = [];
+
+        foreach ($areas as $area) {
+            $entry = [];
+            $products = $area->products;
+
+
+            foreach ($products as $product) {
+                $product = $product->images;
+            }
+
+            $entry['department'] = $area->name;
+            $entry['currentRoute'] = $area->route;
+            $entry['discount'] = $area->discount;
+            $entry['items'] = $products;
+
+            array_push($response, $entry);
         }
 
-        return response()->json($areas);
+        return response()->json($response);
     }
 
     public function show(Request $request, $id)
     {
+        $area = Area::find($id);
         $products = Area::find($id)->products;
 
-        foreach ($products as $product)
-        {
+        foreach ($products as $product) {
             $product = $product->images;
         }
-        $products['discount'] = Area::find($id)->discount;
+        $response['department'] = $area->name;
+        $response['currentRoute'] = $area->route;
+        $response['items'] = $products;
 
-        return response()->json($products);
+        return response()->json($response);
     }
 }

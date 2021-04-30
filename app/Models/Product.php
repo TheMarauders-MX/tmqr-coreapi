@@ -14,7 +14,8 @@ class Product extends Model
     protected $fillable = [
         'name',
         'route',
-        'price',
+        'old_price',
+        'current_price',
         'detail',
         'scoring',
         'area_id'

@@ -16,6 +16,9 @@ class UpdateProductsTable extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->string('route');
             $table->float('scoring');
+            $table->float('old_price')->nullable()->default(null);
+            $table->float('current_price');
+            $table->dropColumn('price');
         });
     }
 
@@ -29,6 +32,9 @@ class UpdateProductsTable extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->dropColumn('route');
             $table->dropColumn('scoring');
+            $table->dropColumn('old_price');
+            $table->dropColumn('current_price');
+            $table->float('price');
         });
     }
 }
