@@ -23,6 +23,7 @@ class AreaController extends Controller
             }
 
             $entry['department'] = $area->name;
+            $entry['image'] = $area->image;
             $entry['currentRoute'] = $area->route;
             $entry['discount'] = $area->discount;
             $entry['items'] = $products;
